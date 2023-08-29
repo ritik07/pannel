@@ -1,0 +1,123 @@
+@import "./functions";
+@import "./mixins";
+@import "./typography";
+@import "./grid";
+@import "./custom/border-radius.scss";
+@import "./custom/margin.scss";
+@import "./custom/padding.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--PrimaryFont);
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.cs-cursor-pointer {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-hint {
+  color: map-get($map: $grey, $key: 12);
+}
+
+$rules: (
+  (m, margin),
+  (ml, margin-left),
+  (mt, margin-top),
+  (mb, margin-bottom),
+  (mr, margin-right),
+  (p, padding),
+  (pl, padding-left),
+  (pt, padding-top),
+  (pr, padding-right),
+  (pb, padding-bottom)
+);
+
+@each $item in $rules {
+  @include generate(nth($item, 1), nth($item, 2));
+}
+
+/// @todo do the fix in the library
+.nitrozen-checkbox-container {
+  justify-content: start !important;
+  flex-direction: row-reverse;
+
+  .nitrozen-checkbox {
+    position: relative;
+  }
+}
+
+/// @todo add in the library
+.nitrozen-input-prefix {
+  font-size: pxToRem(14);
+}
+
+.nitrozen-tooltip .nitrozen-tooltipcontent {
+  max-width: pxToRem(300);
+}
+
+.blur-background {
+  -webkit-filter: brightness(40%);
+  -moz-filter: brightness(40%);
+  -o-filter: brightness(40%);
+  -ms-filter: brightness(40%);
+  filter: brightness(40%);
+}
+.bread-crumbs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.active-inactive-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.position-rel {
+  position: relative;
+}
+
+.cs-dis-flex {
+  display: flex;
+}
+
+.cs-pointer{
+  cursor: pointer;
+}
+
+.cs-center {
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.cs-vt-center {
+  align-items: center;
+  align-content: center;
+}
+
+.cs-vh-100 {
+  height: 100vh;
+}

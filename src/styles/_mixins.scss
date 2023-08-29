@@ -1,0 +1,18 @@
+// @link https://stackoverflow.com/a/58069507
+@import "./functions";
+///
+/// @param {string} $prefix
+/// @param {string} $property
+
+
+@mixin generate($prefix, $property) {
+	/// @type array $sizes to be generated in 'px' unit.
+	$sizes: (0, 4, 8, 12, 16, 20, 24);
+
+	// Loop through all of the sizes(we use @for rather than @each, as we want access to the index)
+	@each $size in $sizes {
+		.#{$prefix}-#{$size} {
+			#{$property}: pxToRem($size);
+		}
+	}
+}

@@ -1,0 +1,28 @@
+@use "sass:map";
+@import "/src/styles/functions";
+
+$padding-value: 2, 4, 6, 8, 10, 12, 14, 15, 16, 18, 20, 22, 24, 26;
+
+@each $value in $padding-value {
+  .cs-bp-#{$value} {
+    padding-bottom: #{$value}px !important;
+  }
+}
+
+@each $value in $padding-value {
+  .cs-tp-#{$value} {
+    padding-top: #{$value}px !important;
+  }
+}
+
+@each $value in $padding-value {
+    .cs-rp-#{$value} {
+      padding-right: #{$value}px !important;
+    }
+  }
+
+@each $value in $padding-value {
+  .cs-p-#{$value} {
+    padding: #{$value}px !important;
+  }
+}

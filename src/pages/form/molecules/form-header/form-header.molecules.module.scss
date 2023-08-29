@@ -1,0 +1,8 @@
+@import "/src/styles/functions";
+@import "/src/styles/colors";
+
+.header_container {
+  padding: pxToRem(20);
+  display: flex;
+  justify-content: space-between;
+}

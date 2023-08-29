@@ -1,0 +1,29 @@
+@use "sass:map";
+@import "/src/styles/functions";
+
+$margin-value: 2, 4, 5, 6, 8, 10, 12, 14, 15, 17, 16, 18, 20, 22, 24, 25, 26, 30, 35,
+  40;
+
+@each $value in $margin-value {
+  .cs-bm-#{$value} {
+    margin-bottom: #{$value}px !important;
+  }
+}
+
+@each $value in $margin-value {
+  .cs-tm-#{$value} {
+    margin-top: #{$value}px !important;
+  }
+}
+
+@each $value in $margin-value {
+  .cs-rm-#{$value} {
+    margin-right: #{$value}px !important;
+  }
+}
+
+@each $value in $margin-value {
+  .cs-lm-#{$value} {
+    margin-left: #{$value}px !important;
+  }
+}

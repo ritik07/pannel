@@ -1,0 +1,11 @@
+@use "sass:math";
+
+/// @param {number} $pxValue The pixel value to be converted to rem.
+/// @return {string} rem value
+/// @example
+///     pxToRem(10) will return 1rem
+/// `$pxValue` is divided by 10 because font size at body element is 10px;
+
+@function pxToRem($pxValue) {
+  @return math.div($pxValue, 10) + rem;
+}

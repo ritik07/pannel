@@ -1,0 +1,7 @@
+@import "/src/styles/functions";
+@import "/src/styles/colors";
+
+.form_child_container{
+  display: grid;
+  grid-template-columns: 6% 3fr;
+}
