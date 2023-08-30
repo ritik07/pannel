@@ -135,3 +135,10 @@
 		line-height: 140%;
 	}
 }
+$weight-value:  400, 500, 600, 700, 800;
+
+@each $value in $weight-value {
+  .cs-fw-#{$value} {
+    font-weight: #{$value} !important;
+  }
+}

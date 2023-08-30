@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import CSS from "./form.page.module.scss";
-import CurrentForm from "../../components/form/form-container/current.form-container";
 import FormHeader from "../../components/form/header/form-header.molecules";
 import FormTab from "../../components/form/tab/tabs.molecule";
 import { ITEMS } from "./constant/form.constant";
+import CurrentForm from "../../components/form/form-container/current.form-container";
 
 export const Form = () => {
   const [active, setActive] = useState(1);

@@ -1,21 +1,21 @@
 import React from "react";
 import CSS from "./form-header.molecules.module.scss";
-import TextAtom from "../../common/text/text";
+import { Typography } from "antd";
+
+const { Title } = Typography;
 
 const FormHeader = () => {
   return (
     <div>
       <div className={CSS.header_container}>
         <div>
-          <TextAtom text="Lorizzel ipizzel" type="header-1" />
-          <TextAtom
-            style={{ color: "#5555f1" }}
-            text="Dorizzel sit"
-            type="header-1"
-          />
+          <Title level={3}>Lorizzel ipizzel</Title>
+          <Title className="cs-color-primary" level={3}>
+            Dorizzel sit
+          </Title>
         </div>
-        <div>
-          <TextAtom text="ID #008-12223-4" type="header" />
+        <div className="cs-dis-flex cs-ai-end">
+          <Title level={5}>ID #0108-12223-4</Title>
         </div>
       </div>
     </div>

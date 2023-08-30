@@ -1,5 +1,7 @@
 import React from "react";
-import TextAtom from "../../../components/common/text/text";
+import { Typography } from "antd";
+
+const { Title, Text } = Typography;
 
 interface ITabHeaderProps {
   label: string;
@@ -16,13 +18,11 @@ const getTabHeader = ({
 }: ITabHeaderProps): JSX.Element => {
   return (
     <div>
-      <TextAtom text={label} type="label" />
-      <TextAtom
-        style={{ color: isActive ? "#38b65a" : "" }}
-        text={heading}
-        type="heading-1"
-      />
-      <TextAtom text={title} type="heading" />
+      <Text disabled>{label}</Text>
+      <Title className={isActive ? "cs-color-secondary" : ""} level={4}>
+        {heading}
+      </Title>
+      <Text>{title}</Text>
     </div>
   );
 };

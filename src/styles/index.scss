@@ -5,6 +5,7 @@
 @import "./custom/border-radius.scss";
 @import "./custom/margin.scss";
 @import "./custom/padding.scss";
+@import "./ant_override";
 
 html,
 body {
@@ -12,6 +13,14 @@ body {
   margin: 0;
   font-style: normal;
   min-height: 100vh;
+}
+
+.cs-color-primary{
+  color: #5555f1 !important;
+}
+
+.cs-color-secondary{
+  color: #38b65a !important;
 }
 
 * {
