@@ -2,11 +2,21 @@ import React from "react";
 import { Row, Col, Space } from "antd";
 import CSS from "./current.form-container.module.scss";
 import bg from "./assets/bg.png";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { RightOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
 
 const { Title, Text } = Typography;
-const CurrentForm = () => {
+
+interface ICurrentFormProps {
+  onContinue: Function;
+  active: number;
+}
+
+const CurrentForm = ({ onContinue, active }: ICurrentFormProps) => {
+  const handleOnContinue = () => {
+    onContinue(active);
+  };
+
   return (
     <div>
       <Text disabled className="cs-fw-500">
@@ -91,8 +101,13 @@ const CurrentForm = () => {
               }
             </Text>
 
-            <div className={"cs-dis-flex cs-ai-end"}>
-              <div className={CSS.current_form_continue}>Continue</div>
+            <div className={"cs-dis-flex cs-ai-end cs-cursor-pointer"} onClick={handleOnContinue}>
+              <div className={CSS.current_form_continue}>
+                <Text>Continue</Text>
+                <div className="cs-lm-5 cs-dis-flex cs-center">
+                  <RightOutlined />
+                </div>
+              </div>
             </div>
           </div>
         </Col>

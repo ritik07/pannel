@@ -9,7 +9,7 @@ export const Form = () => {
   const [active, setActive] = useState(1);
 
   const handleTabClick = (value: number) => {
-    setActive(value);
+    setActive(value + 1);
   };
 
   const getTabChildren = (value: number): JSX.Element => {
@@ -18,7 +18,10 @@ export const Form = () => {
         return (
           <div>
             <h3>
-              <CurrentForm />
+              <CurrentForm
+                active={active}
+                onContinue={() => handleTabClick(value)}
+              />
             </h3>
           </div>
         );
@@ -55,7 +58,7 @@ export const Form = () => {
       <FormHeader />
       <FormTab
         active={active}
-        onChange={handleTabClick}
+        // onChange={handleTabClick}
         items={ITEMS({ active: active })}
       />
       <div className={CSS.form_child_container}>
