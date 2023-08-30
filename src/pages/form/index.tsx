@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import FormHeader from "./molecules/form-header/form-header.molecules";
-import FormTab from "./molecules/form-tab/tabs.molecule";
 import CSS from "./form.page.module.scss";
-import { ITEMS } from "./form.constant";
+import CurrentForm from "../../components/form/form-container/current.form-container";
+import FormHeader from "../../components/form/header/form-header.molecules";
+import FormTab from "../../components/form/tab/tabs.molecule";
+import { ITEMS } from "./constant/form.constant";
 
 export const Form = () => {
   const [active, setActive] = useState(1);
@@ -16,7 +17,9 @@ export const Form = () => {
       case 1:
         return (
           <div>
-            <h3>Children 1</h3>
+            <h3>
+              <CurrentForm />
+            </h3>
           </div>
         );
       case 2:

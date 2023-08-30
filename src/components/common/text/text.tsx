@@ -26,6 +26,7 @@ const classes: any = {
   heading: "cs-heading",
   title: "cs-title",
   label: "cs-label",
+  "heading-label": "cs-heading-label",
   "section-heading": "cs-section-heading",
   "section-description": "cs-section-description",
   "heading-1": "cs-heading-1",
@@ -61,7 +62,6 @@ function Text({
     <>
       <div
         style={{
-          ...style,
           WebkitLineClamp: webkitLineClamp,
           fontWeight: fontWeight,
           lineHeight: pxToRem(lineHeight),
@@ -69,6 +69,7 @@ function Text({
             ellipsis && maxEllipsisWidth
               ? pxToRem(maxEllipsisWidth)
               : undefined,
+          ...style,
         }}
         data-testid={"text" + id}
         className={

@@ -1,6 +1,6 @@
 import React from "react";
 import CSS from "./form-header.molecules.module.scss";
-import TextAtom from "../../../../components/atoms/text/text";
+import TextAtom from "../../common/text/text";
 
 const FormHeader = () => {
   return (

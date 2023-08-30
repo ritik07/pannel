@@ -1,5 +1,5 @@
 import React from "react";
-import TextAtom from "../../components/atoms/text/text";
+import TextAtom from "../../../components/common/text/text";
 
 interface ITabHeaderProps {
   label: string;

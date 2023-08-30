@@ -36,8 +36,17 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .input-hint {
   color: map-get($map: $grey, $key: 12);
+}
+
+.cs-jc-sb {
+  justify-content: space-between;
+}
+
+.cs-ai-end {
+  align-items: flex-end;
 }
 
 $rules: (
@@ -83,17 +92,20 @@ $rules: (
   -ms-filter: brightness(40%);
   filter: brightness(40%);
 }
+
 .bread-crumbs {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
 }
+
 .active-inactive-toggle {
   position: absolute;
   top: 20px;
   right: 20px;
 }
+
 .position-rel {
   position: relative;
 }
@@ -102,7 +114,7 @@ $rules: (
   display: flex;
 }
 
-.cs-pointer{
+.cs-pointer {
   cursor: pointer;
 }
 
