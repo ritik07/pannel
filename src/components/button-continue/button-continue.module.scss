@@ -1,5 +1,4 @@
 @import "/src/styles/functions";
-@import "/src/styles/colors";
 
 .current_form_continue {
   width: pxToRem(170);
@@ -9,10 +8,4 @@
   border-radius: pxToRem(6);
   display: flex;
   justify-content: space-between;
-}
-
-.current_form_bg_image {
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }

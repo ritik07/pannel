@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-import CSS from "./tabs.molecule.module.scss";
+import CSS from "./tabs.module.scss";
 import { CloseOutlined } from "@ant-design/icons";
 
 export interface TabHeader {

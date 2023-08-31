@@ -4,8 +4,9 @@ import CSS from "./current.form-container.module.scss";
 import bg from "./assets/bg.png";
 import { RightOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
+import ButtonContinue from "../../../button-continue/button-continue";
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 interface ICurrentFormProps {
   onContinue: Function;
@@ -101,14 +102,7 @@ const CurrentForm = ({ onContinue, active }: ICurrentFormProps) => {
               }
             </Text>
 
-            <div className={"cs-dis-flex cs-ai-end cs-cursor-pointer"} onClick={handleOnContinue}>
-              <div className={CSS.current_form_continue}>
-                <Text>Continue</Text>
-                <div className="cs-lm-5 cs-dis-flex cs-center">
-                  <RightOutlined />
-                </div>
-              </div>
-            </div>
+            <ButtonContinue clickEvent={handleOnContinue} text="Continue" />
           </div>
         </Col>
 

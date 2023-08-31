@@ -15,12 +15,28 @@ body {
   min-height: 100vh;
 }
 
-.cs-color-primary{
+.cs-color-primary {
   color: #5555f1 !important;
 }
 
-.cs-color-secondary{
+.cs-color-secondary {
   color: #38b65a !important;
+}
+
+$width-value: 30, 40, 50, 60, 70, 80, 90, 100;
+
+@each $value in $width-value {
+	.cs-w-#{$value} {
+		width: #{$value}"%" !important;
+	}
+}
+
+.cs-w-100 {
+  width: 100%;
+}
+
+.cs-w-60 {
+  width: 60%;
 }
 
 * {
@@ -34,6 +50,10 @@ body {
 
 .cs-cursor-pointer {
   cursor: pointer;
+}
+
+.cs-jc-end {
+  justify-content: end;
 }
 
 .flex {
