@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CSS from "./form.page.module.scss";
 import FormHeader from "../../components/form/header/form-header.molecules";
 import FormTab from "../../components/form/tab/tabs";
@@ -9,12 +9,20 @@ import Step3 from "../../components/form/form-container/step-3/step3";
 
 export const Form = () => {
   const [active, setActive] = useState(1);
+  const [progressValue, setProgressValue] = useState(0);
+
+  useEffect(() => {
+    console.log("progressValue", progressValue);
+  }, [progressValue]);
 
   const handleTabClick = (value: number) => {
     setActive(value + 1);
   };
 
-  const getTabChildren = (value: number): JSX.Element => {
+  const getTabChildren = (
+    value: number,
+    setProgressValue: Function
+  ): JSX.Element => {
     switch (value) {
       case 1:
         return (
@@ -29,7 +37,12 @@ export const Form = () => {
         );
       case 3:
         return (
-          <Step3 active={active} onContinue={() => handleTabClick(value)} />
+          <Step3
+            active={active}
+            onContinue={() => handleTabClick(value)}
+            setProgressValue={(value: number) => setProgressValue(value)}
+            progressValue={progressValue}
+          />
         );
       case 4:
         return (
@@ -53,11 +66,13 @@ export const Form = () => {
       <FormTab
         active={active}
         // onChange={handleTabClick}
-        items={ITEMS({ active: active })}
+        items={ITEMS({ active: active, progressValue: progressValue })}
       />
       <div className={CSS.form_child_container}>
         <div></div>
-        <div className="cs-tm-40">{getTabChildren(active)}</div>
+        <div className="cs-tm-40">
+          {getTabChildren(active, setProgressValue)}
+        </div>
       </div>
     </div>
   );

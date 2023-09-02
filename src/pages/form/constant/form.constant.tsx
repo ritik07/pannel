@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "antd";
 import { CheckOutlined } from "@ant-design/icons";
+import CSS from "../form.page.module.scss";
 
 const { Title, Text } = Typography;
 
@@ -11,6 +12,8 @@ interface ITabHeaderProps {
   isActive: boolean;
   active: number;
   key: number;
+  isProgress: boolean;
+  progress?: number;
 }
 
 const getTabHeader = ({
@@ -20,12 +23,37 @@ const getTabHeader = ({
   isActive,
   active,
   key,
+  isProgress,
+  progress,
 }: ITabHeaderProps): JSX.Element => {
   return (
     <div>
-      <Text disabled>
-        {+active > key ? "Complete" : active === key ? "Current" : "Pending"}
-      </Text>
+      <div className="cs-dis-flex">
+        <Text disabled>
+          {+active > key ? "Complete" : active === key ? "Current" : "Pending"}
+        </Text>
+        {isProgress && (
+          <div className="cs-dis-flex">
+            <div className="cs-dis-flex cs-center cs-lm-8">
+              <div
+                className={CSS.cs_progress_step}
+                style={{
+                  backgroundColor:
+                    progress === 1 || progress === 2 ? "#27ae60" : "#c5c6c8",
+                }}
+              ></div>
+            </div>
+            <div className="cs-dis-flex cs-center cs-lm-8">
+              <div
+                className={CSS.cs_progress_step}
+                style={{
+                  backgroundColor: progress === 2 ? "#27ae60" : "#c5c6c8",
+                }}
+              ></div>
+            </div>
+          </div>
+        )}
+      </div>
       <div className="cs-dis-flex cs-jc-sb">
         <Title className={isActive ? "cs-color-secondary" : ""} level={4}>
           {heading}
@@ -43,9 +71,10 @@ const getTabHeader = ({
 
 interface IItemsProps {
   active: number;
+  progressValue: number;
 }
 
-export const ITEMS = ({ active = 1 }: IItemsProps) => [
+export const ITEMS = ({ active = 1, progressValue = 0 }: IItemsProps) => [
   {
     key: 1,
     path: "/layout/earn",
@@ -56,6 +85,7 @@ export const ITEMS = ({ active = 1 }: IItemsProps) => [
       isActive: active === 1 ? true : false,
       active: active,
       key: 1,
+      isProgress: false,
     }),
     // children: `Content of Tab Pane 1`,
   },
@@ -69,6 +99,7 @@ export const ITEMS = ({ active = 1 }: IItemsProps) => [
       isActive: active === 2 ? true : false,
       active: active,
       key: 2,
+      isProgress: false,
     }),
     // children: `Content of Tab Pane 2`,
   },
@@ -82,6 +113,8 @@ export const ITEMS = ({ active = 1 }: IItemsProps) => [
       isActive: active === 3 ? true : false,
       active: active,
       key: 3,
+      isProgress: true,
+      progress: progressValue,
     }),
     // children: `Content of Tab Pane 3`,
   },
@@ -95,6 +128,7 @@ export const ITEMS = ({ active = 1 }: IItemsProps) => [
       isActive: active === 4 ? true : false,
       active: active,
       key: 4,
+      isProgress: false,
     }),
     // children: `Content of Tab Pane 3`,
   },

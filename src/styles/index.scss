@@ -19,17 +19,25 @@ body {
   color: #5555f1 !important;
 }
 
+.cs-bg-fff {
+  background-color: #fff;
+}
+
+.cs-clr-fff {
+  color: #FFF !important;
+}
+
 .cs-color-secondary {
   color: #38b65a !important;
 }
 
-$width-value: 30, 40, 50, 60, 70, 80, 90, 100;
+// $width-value: 30, 40, 50, 60, 70, 80, 90, 100;
 
-@each $value in $width-value {
-	.cs-w-#{$value} {
-		width: #{$value}"%" !important;
-	}
-}
+// @each $value in $width-value {
+// 	.cs-w-#{$value} {
+// 		width: #{$value}"%" !important;
+// 	}
+// }
 
 .cs-w-100 {
   width: 100%;
@@ -53,7 +61,7 @@ $width-value: 30, 40, 50, 60, 70, 80, 90, 100;
 }
 
 .cs-jc-end {
-  justify-content: end;
+  justify-content: end !important;
 }
 
 .flex {
@@ -71,7 +79,7 @@ $width-value: 30, 40, 50, 60, 70, 80, 90, 100;
 }
 
 .cs-jc-sb {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .cs-ai-end {

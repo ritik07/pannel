@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Space } from "antd";
 import CSS from "./current.form-container.module.scss";
-import bg from "./assets/bg.png";
+import bg from "../assets/bg.png";
 import { RightOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
 import ButtonContinue from "../../../button-continue/button-continue";
