@@ -30,7 +30,7 @@ const Part2 = ({ handleOnContinue }: IPart2) => {
       </Space>
 
       <Row className="cs-tm-30" gutter={[20, 20]}>
-        <Col xl={6} sm={9} className="cs-tm-40">
+        <Col xl={6} sm={9} className="cs-tm-10">
           <div>
             <div>
               <Title level={4}>Select Bank</Title>
@@ -53,7 +53,7 @@ const Part2 = ({ handleOnContinue }: IPart2) => {
 
         <Col span={1}></Col>
 
-        <Col xl={7} sm={9} className="cs-tm-40">
+        <Col xl={7} sm={9} className="cs-tm-10">
           <PriceView />
         </Col>
       </Row>
