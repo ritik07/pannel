@@ -6,6 +6,7 @@ import { ITEMS } from "./constant/form.constant";
 import CurrentForm from "../../components/form/form-container/step-1/current.form-container";
 import Step2 from "../../components/form/form-container/step-2/step-2";
 import Step3 from "../../components/form/form-container/step-3/step3";
+import Step4 from "../../components/form/form-container/step-4/step4";
 
 export const Form = () => {
   const [active, setActive] = useState(1);
@@ -47,7 +48,7 @@ export const Form = () => {
       case 4:
         return (
           <div>
-            <h3>Children 4</h3>
+            <Step4 active={active} onContinue={() => handleTabClick(value)} />
           </div>
         );
 

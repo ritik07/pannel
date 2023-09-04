@@ -1,0 +1,8 @@
+@import "/src/styles/functions";
+
+.cs_upload_wrapper {
+  background-color: #ededf1;
+  padding: pxToRem(20) pxToRem(20) pxToRem(40) pxToRem(20);
+  border-radius: pxToRem(5);
+  height: fit-content;
+}
