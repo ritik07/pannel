@@ -1,0 +1,28 @@
+@import "/src/styles/functions";
+
+
+.icon_download_container {
+  padding: pxToRem(15);
+  background-color: #5FFC99;
+  border-radius: pxToRem(2);
+}
+
+.icon_upload_container {
+  padding: pxToRem(15);
+  background-color: #eae9ef79;
+  border-radius: pxToRem(2);
+}
+
+.cs_custom_card_kyc {
+  background-color: #fff;
+  padding: pxToRem(10);
+  border-radius: 4px;
+  border: 1px solid #00000014;
+}
+
+.cs_custom_card_kyc_download {
+  background-color: #fff;
+  padding: pxToRem(10);
+  border-radius: 4px;
+  border: 1px solid #5555f1;
+}

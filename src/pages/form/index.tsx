@@ -12,10 +12,6 @@ export const Form = () => {
   const [active, setActive] = useState(1);
   const [progressValue, setProgressValue] = useState(0);
 
-  useEffect(() => {
-    console.log("progressValue", progressValue);
-  }, [progressValue]);
-
   const handleTabClick = (value: number) => {
     setActive(value + 1);
   };

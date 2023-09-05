@@ -14,6 +14,7 @@ import CSS from "./step-3.module.scss";
 import BankAds from "./bank-ads";
 import Part1 from "./part-1/part-1";
 import Part2 from "./part-2/part-2";
+import Part0 from "./part-0/part-0";
 
 const { Text, Title } = Typography;
 
@@ -45,6 +46,14 @@ const Step3 = ({
   return (
     <div>
       {progressValue === 1 && (
+        <Part0
+          active={active}
+          progressValue={progressValue}
+          setProgressValue={setProgressValue}
+          handleOnNext={handleOnNext}
+        />
+      )}
+      {progressValue === 2 && (
         <Part1
           active={active}
           progressValue={progressValue}
@@ -53,7 +62,7 @@ const Step3 = ({
         />
       )}
 
-      {progressValue === 2 && <Part2 handleOnContinue={handleOnContinue} />}
+      {progressValue === 3 && <Part2 handleOnContinue={handleOnContinue} />}
     </div>
   );
 };

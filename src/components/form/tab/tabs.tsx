@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { Typography } from "antd";
 import CSS from "./tabs.module.scss";
 import { CloseOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 export interface TabHeader {
   key: number;
@@ -25,6 +26,12 @@ function TabsMolecule({
     console.log("clicked");
   },
 }: TabsProps): JSX.Element {
+  const navigate = useNavigate();
+
+  const handleOnClaim = () => {
+    navigate("/acknowledge");
+  };
+
   return (
     <div className={CSS.tab_container}>
       <div
@@ -58,8 +65,15 @@ function TabsMolecule({
             </div>
           );
         })}
-        <div className={`cs-dis-flex cs-center ${CSS.box_border} ${active === 4 && CSS.active_claim}`}>
-          {active === 4 && <Typography.Title level={4}>Claim Complete</Typography.Title>}
+        <div
+          onClick={handleOnClaim}
+          className={`cs-dis-flex cs-center cs-cursor-pointer ${
+            CSS.box_border
+          } ${active === 4 && CSS.active_claim}`}
+        >
+          {active === 4 && (
+            <Typography.Title level={4}>Claim Complete</Typography.Title>
+          )}
         </div>
       </div>
     </div>

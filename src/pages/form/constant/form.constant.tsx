@@ -24,7 +24,7 @@ const getTabHeader = ({
   active,
   key,
   isProgress,
-  progress,
+  progress = 0,
 }: ITabHeaderProps): JSX.Element => {
   return (
     <div>
@@ -38,8 +38,7 @@ const getTabHeader = ({
               <div
                 className={CSS.cs_progress_step}
                 style={{
-                  backgroundColor:
-                    progress === 1 || progress === 2 ? "#27ae60" : "#c5c6c8",
+                  backgroundColor: progress >= 1 ? "#27ae60" : "#c5c6c8",
                 }}
               ></div>
             </div>
@@ -47,7 +46,7 @@ const getTabHeader = ({
               <div
                 className={CSS.cs_progress_step}
                 style={{
-                  backgroundColor: progress === 2 ? "#27ae60" : "#c5c6c8",
+                  backgroundColor: progress >= 2 ? "#27ae60" : "#c5c6c8",
                 }}
               ></div>
             </div>

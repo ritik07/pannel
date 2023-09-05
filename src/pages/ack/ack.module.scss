@@ -1,0 +1,37 @@
+@import "/src/styles/functions";
+
+
+.card_container {
+  background-color: #f7f9fb;
+  border-radius: 4px;
+  width: 70pc;
+  height: 50vh;
+  border: 1px solid #00000014;
+}
+
+.left_pannel {
+  position: relative;
+  padding: pxToRem(30);
+  background-color: #fff;
+  border: 1px solid #00000014;
+  border-radius: 0px 10px 10px 0px;
+  height: 50vh;
+}
+
+.icon_wrapper {
+  padding: pxToRem(15);
+  background-color: #5FFC99;
+  border-radius: pxToRem(2);
+}
+
+.date {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.right_pannel {
+  background-color: #f7f9fb;
+  height: 50vh;
+  padding: pxToRem(30);
+}
