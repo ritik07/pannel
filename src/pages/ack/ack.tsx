@@ -1,7 +1,8 @@
 import React from "react";
-import { Col, Divider, Row, Typography } from "antd";
+import { Checkbox, Col, Divider, Row, Typography } from "antd";
 import CSS from "./ack.module.scss";
 import { UserOutlined, FileOutlined } from "@ant-design/icons";
+import ButtonContinue from "../../components/button-continue/button-continue";
 
 const Ack = () => {
   const currentDate = new Date();
@@ -11,7 +12,10 @@ const Ack = () => {
 
   const formattedDate = `${day}-${month}-${year}`;
   return (
-    <div>
+    <div className={CSS.ack_container}>
+      <div className={CSS.ack_title}>
+        <Typography.Title className="cs-color-primary-1" level={3}>Lorem ipsum</Typography.Title>
+      </div>
       <div>
         <div className="cs-dis-flex cs-center cs-vh-100">
           <div className={CSS.card_container}>
@@ -76,7 +80,18 @@ const Ack = () => {
                       </Typography.Text>
                     </div>
 
-                    <Divider className="cs-tm-40"/>
+                    <Divider className="cs-tm-40" />
+
+                    <div className="cs-dis-flex">
+                      <Checkbox />
+                      <div className="cs-lm-10">
+                        <Typography.Text>I Acknowledge</Typography.Text>
+                      </div>
+                    </div>
+
+                    <div className="cs-tm-30">
+                      <ButtonContinue clickEvent={() => {}} text="Continue" />
+                    </div>
                   </div>
                 </div>
               </Col>

@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Space, Card, DatePicker, Typography, Form } from "antd";
 import ButtonContinue from "../../../button-continue/button-continue";
 import CSS from "./step-2.module.scss";
+import { useDispatch } from "react-redux";
+import { setProgress } from "../../../../redux/actions/tabProgress";
+import { useNavigate } from "react-router-dom";
 
 const { Text } = Typography;
 
 interface IStep2Props {
-  onContinue: Function;
-  active: number;
+  onContinue?: Function;
+  active?: number;
 }
 
-const Step2 = ({ onContinue, active }: IStep2Props) => {
+const Step2 = ({ onContinue = () => {}, active }: IStep2Props) => {
+  const navigate = useNavigate();
+  const dispatch: Function = useDispatch();
+
+  useEffect(() => {
+    dispatch(setProgress(3));
+  }, []);
+
   const handleOnContinue = () => {
-    onContinue(active);
+    if (true) {
+      navigate("/claim/step-3");
+      dispatch(setProgress(3));
+    }
+    // onContinue(active);
   };
+
+
+  useEffect(() => {
+    dispatch(setProgress(2));
+  }, []);
+
   return (
     <div>
       <Text disabled className="cs-fw-500">

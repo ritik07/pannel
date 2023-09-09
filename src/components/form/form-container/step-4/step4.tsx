@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row, Typography } from "antd";
 import Uploader from "./uploader";
 import CSS from "./step4.module.scss";
+import {
+  setProgress,
+  setNestedProgress,
+} from "../../../../redux/actions/tabProgress";
+import { useDispatch } from "react-redux";
 
-interface IStep4Props {
-  active: number;
-  onContinue: Function;
-}
+const Step4 = () => {
+  const dispatch: Function = useDispatch();
 
-const Step4 = ({ active, onContinue }: IStep4Props) => {
+  useEffect(() => {
+    dispatch(setProgress(4));
+    dispatch(setNestedProgress(3));
+  }, []);
   return (
     <div>
       <Typography.Text disabled className="cs-fw-600">

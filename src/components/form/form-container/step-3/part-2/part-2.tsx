@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   Col,
@@ -12,14 +12,30 @@ import {
 import SelectBankButton from "./select-bank-button/select-bank-button";
 import ButtonContinue from "../../../../button-continue/button-continue";
 import PriceView from "./price-view/price-view";
+import { useDispatch } from "react-redux";
+import {
+  setProgress,
+  setNestedProgress,
+} from "../../../../../redux/actions/tabProgress";
+import { useNavigate } from "react-router-dom";
 
 const { Text, Title } = Typography;
 
-interface IPart2 {
-  handleOnContinue: Function;
-}
+const Part2 = () => {
+  const navigate = useNavigate();
+  const dispatch: Function = useDispatch();
 
-const Part2 = ({ handleOnContinue }: IPart2) => {
+  useEffect(() => {
+    dispatch(setNestedProgress(3));
+  }, []);
+
+  const handleOnContinue = () => {
+    if (true) {
+      navigate("/claim/step-4");
+      dispatch(setProgress(4));
+    }
+  };
+
   return (
     <div>
       <Space direction="vertical">

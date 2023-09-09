@@ -1,6 +1,19 @@
 @import "/src/styles/functions";
 
 
+.ack_container {
+  background: #eae9ee;
+  position: relative;
+}
+
+.ack_title{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: pxToRem(10);
+  color: #5555f1 !important;
+}
+
 .card_container {
   background-color: #f7f9fb;
   border-radius: 4px;

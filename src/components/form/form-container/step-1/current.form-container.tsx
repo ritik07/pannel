@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Space } from "antd";
 import CSS from "./current.form-container.module.scss";
 import bg from "../assets/bg.png";
-import { RightOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
 import ButtonContinue from "../../../button-continue/button-continue";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setProgress } from "../../../../redux/actions/tabProgress";
 
 const { Text } = Typography;
 
 interface ICurrentFormProps {
-  onContinue: Function;
-  active: number;
+  onContinue?: Function;
+  active?: number;
 }
 
-const CurrentForm = ({ onContinue, active }: ICurrentFormProps) => {
+const CurrentForm = ({ onContinue = () => {}, active }: ICurrentFormProps) => {
+  const navigate = useNavigate();
+
+  const dispatch: Function = useDispatch();
+
+  useEffect(() => {
+    dispatch(setProgress(1));
+  }, []);
+
   const handleOnContinue = () => {
-    onContinue(active);
+    if (true) {
+      navigate("/claim/step-2");
+      dispatch(setProgress(2));
+    }
   };
 
   return (

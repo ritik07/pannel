@@ -15,54 +15,56 @@ import BankAds from "./bank-ads";
 import Part1 from "./part-1/part-1";
 import Part2 from "./part-2/part-2";
 import Part0 from "./part-0/part-0";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setProgress,
+  setNestedProgress,
+} from "../../../../redux/actions/tabProgress";
+import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const { Text, Title } = Typography;
 
-interface IStep3Props {
-  onContinue?: Function;
-  active: number;
-  setProgressValue: Function;
-  progressValue: number;
-}
+const Step3 = () => {
+  const dispatch: Function = useDispatch();
+  const navigate = useNavigate();
 
-const Step3 = ({
-  onContinue = Function,
-  active,
-  setProgressValue,
-  progressValue,
-}: IStep3Props) => {
+  const nestedProgress = useSelector(
+    (state: any) => state.nestedTabProgress.nestedTabProgress
+  );
+
   useEffect(() => {
-    setProgressValue(1);
+    dispatch(setProgress(3));
   }, []);
 
   const handleOnContinue = () => {
-    onContinue(active);
+    if (true) {
+      navigate("/claim/step-3");
+      dispatch(setProgress(3));
+    }
   };
 
+  useEffect(() => {
+    console.log("nestedProgress", nestedProgress);
+  }, [nestedProgress]);
+
   const handleOnNext = () => {
-    setProgressValue(progressValue + 1);
+    let temp = nestedProgress;
+    console.log("nestedProgress", nestedProgress);
+    dispatch(setNestedProgress(temp + 1));
   };
 
   return (
     <div>
-      {progressValue === 1 && (
-        <Part0
-          active={active}
-          progressValue={progressValue}
-          setProgressValue={setProgressValue}
-          handleOnNext={handleOnNext}
-        />
+      <Outlet />
+      {/* {nestedProgress === 1 && (
+        <Part0 progressValue={nestedProgress} handleOnNext={handleOnNext} />
       )}
-      {progressValue === 2 && (
-        <Part1
-          active={active}
-          progressValue={progressValue}
-          setProgressValue={setProgressValue}
-          handleOnNext={handleOnNext}
-        />
+      {nestedProgress === 2 && (
+        <Part1 progressValue={nestedProgress} handleOnNext={handleOnNext} />
       )}
 
-      {progressValue === 3 && <Part2 handleOnContinue={handleOnContinue} />}
+      {nestedProgress === 3 && <Part2 handleOnContinue={handleOnContinue} />} */}
     </div>
   );
 };

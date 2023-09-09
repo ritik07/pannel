@@ -26,6 +26,7 @@ const getTabHeader = ({
   isProgress,
   progress = 0,
 }: ITabHeaderProps): JSX.Element => {
+  const currentLocation = window.location.pathname.split("/");
   return (
     <div>
       <div className="cs-dis-flex">
@@ -38,6 +39,7 @@ const getTabHeader = ({
               <div
                 className={CSS.cs_progress_step}
                 style={{
+                  // backgroundColor: progress >= 1 ? "#27ae60" : "#c5c6c8",
                   backgroundColor: progress >= 1 ? "#27ae60" : "#c5c6c8",
                 }}
               ></div>

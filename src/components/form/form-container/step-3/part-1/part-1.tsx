@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ButtonContinue from "../../../../button-continue/button-continue";
 import {
   Card,
@@ -11,25 +11,33 @@ import {
   Typography,
 } from "antd";
 import BankAds from "../bank-ads";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setNestedProgress } from "../../../../../redux/actions/tabProgress";
 
 const { Text, Title } = Typography;
 
-interface IStep3Props {
-  onContinue?: Function;
-  active: number;
-  setProgressValue: Function;
-  progressValue: number;
-  handleOnNext: Function;
-}
+const Part1 = () => {
+  const dispatch: Function = useDispatch();
+  const navigate = useNavigate();
 
-const Part1 = ({
-  onContinue = Function,
-  active,
-  setProgressValue,
-  progressValue,
-  handleOnNext,
-}: IStep3Props) => {
+  useEffect(() => {
+    dispatch(setNestedProgress(1));
+  }, []);
+
+  const nestedProgress = useSelector(
+    (state: any) => state.nestedTabProgress.nestedTabProgress
+  );
+
   const [form] = Form.useForm();
+
+  const handleOnNext = () => {
+    if (true) {
+      navigate("/claim/step-3/part-2");
+      let temp = nestedProgress;
+      dispatch(setNestedProgress(temp + 1));
+    }
+  };
 
   return (
     <div>

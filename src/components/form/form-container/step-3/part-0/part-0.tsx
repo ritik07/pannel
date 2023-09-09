@@ -2,24 +2,28 @@ import React, { useState } from "react";
 import { Col, Divider, Form, Row, Space, Typography } from "antd";
 import DocumentCard from "./document-card/document-card";
 import ButtonContinue from "../../../../button-continue/button-continue";
+import { setNestedProgress } from "../../../../../redux/actions/tabProgress";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const { Text, Title } = Typography;
 
-interface IStep3Props {
-  onContinue?: Function;
-  active: number;
-  setProgressValue: Function;
-  progressValue: number;
-  handleOnNext: Function;
-}
+const Part0 = () => {
+  const dispatch: Function = useDispatch();
+  const navigate = useNavigate();
 
-const Part0 = ({
-  onContinue = Function,
-  active,
-  setProgressValue,
-  progressValue,
-  handleOnNext,
-}: IStep3Props) => {
+  const nestedProgress = useSelector(
+    (state: any) => state.nestedTabProgress.nestedTabProgress
+  );
+
+  const handleOnNext = () => {
+    if (true) {
+      navigate("/claim/step-3/part-1");
+      let temp = nestedProgress;
+      dispatch(setNestedProgress(temp + 1));
+    }
+  };
+
   const [form] = Form.useForm();
 
   const [panFile, setPanFile] = useState<{
