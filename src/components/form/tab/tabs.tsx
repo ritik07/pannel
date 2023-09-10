@@ -47,9 +47,7 @@ function TabsMolecule({
             <div
               key={item.key}
               onClick={() => onChange(item.key, item.path)}
-              className={`${CSS["cs-tab-title"]} ${CSS["cs-cursor-pointer"]} ${
-                CSS.box_border
-              } 
+              className={`${CSS["cs-tab-title"]}} ${CSS.box_border} 
                ${CSS["cs-bp-10"]} ${
                 active === item.key ? CSS["cs-active-tab"] : ""
               }`}
@@ -66,10 +64,10 @@ function TabsMolecule({
           );
         })}
         <div
-          onClick={handleOnClaim}
-          className={`cs-dis-flex cs-center cs-cursor-pointer ${
-            CSS.box_border
-          } ${active === 4 && CSS.active_claim}`}
+          onClick={active === 4 ? handleOnClaim : () => {}}
+          className={`cs-dis-flex cs-center ${CSS.box_border} ${
+            active === 4 && `${CSS.active_claim} cs-cursor-pointer`
+          }`}
         >
           {active === 4 && (
             <Typography.Title level={4}>Claim Complete</Typography.Title>

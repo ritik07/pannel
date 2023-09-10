@@ -17,3 +17,12 @@ export const setNestedProgress = (data: number) => {
     });
   };
 };
+
+export const setUserData = (data: number) => {
+  return (dispatch: Function) => {
+    dispatch({
+      type: actionTypes.setUserData, // Use the imported action type as the 'type' property
+      payload: data,
+    });
+  };
+};

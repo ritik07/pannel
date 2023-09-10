@@ -9,7 +9,7 @@ $template-value: 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26;
 
 @each $value in $template-value {
   .cs-grid-count-#{$value} {
-    grid-template-columns: 5% 2fr 2fr 2fr 2fr 4fr;
+    grid-template-columns: 5% 4fr 4fr 4fr 4fr;
   }
 }
 

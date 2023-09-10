@@ -15,7 +15,7 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<Form />}>
         <Route index element={<CurrentForm />} />
-        <Route path="/claim/step-2" element={<Step2 />} />
+        {/* <Route path="/claim/step-2" element={<Step2 />} /> */}
         <Route path="/claim/step-3" element={<Step3 />}>
           <Route index element={<Part0 />} />
           <Route path="/claim/step-3/part-1" element={<Part1 />} />

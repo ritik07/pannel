@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Row, Col, Space } from "antd";
+import { Row, Col, Space, Form, Card, DatePicker } from "antd";
 import CSS from "./current.form-container.module.scss";
 import bg from "../assets/bg.png";
 import { Typography } from "antd";
@@ -26,7 +26,7 @@ const CurrentForm = ({ onContinue = () => {}, active }: ICurrentFormProps) => {
 
   const handleOnContinue = () => {
     if (true) {
-      navigate("/claim/step-2");
+      navigate("/claim/step-3");
       dispatch(setProgress(2));
     }
   };
@@ -36,70 +36,95 @@ const CurrentForm = ({ onContinue = () => {}, active }: ICurrentFormProps) => {
       <Text disabled className="cs-fw-500">
         {"Lorem ipsum dolor sit"}
       </Text>
-      <Row className="cs-tm-30">
-        <Col span={5}>
-          <Space direction="vertical">
-            <Text disabled className="cs-fw-600">
-              {"Lorem"}
-            </Text>
+      <Row>
+        <Col span={12}>
+          <Row className="cs-tm-30">
+            <Col span={8}>
+              <Space direction="vertical">
+                <Text disabled className="cs-fw-600">
+                  {"Lorem"}
+                </Text>
 
-            <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
-          </Space>
+                <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
+              </Space>
+            </Col>
+
+            <Col span={8}>
+              <Space direction="vertical">
+                <Text disabled className="cs-fw-600">
+                  {"Lorem"}
+                </Text>
+
+                <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
+              </Space>
+            </Col>
+
+            <Col span={8}>
+              <Space direction="vertical">
+                <Text disabled className="cs-fw-600">
+                  {"Lorem"}
+                </Text>
+
+                <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
+              </Space>
+            </Col>
+          </Row>
+
+          <Row className="cs-tm-25">
+            <Col span={8}>
+              <Space direction="vertical">
+                <Text disabled className="cs-fw-600">
+                  {"Lorem"}
+                </Text>
+
+                <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
+              </Space>
+            </Col>
+
+            <Col span={8}>
+              <Space direction="vertical">
+                <Text disabled className="cs-fw-600">
+                  {"Lorem"}
+                </Text>
+
+                <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
+              </Space>
+            </Col>
+
+            <Col span={8}>
+              <Space direction="vertical">
+                <Text disabled className="cs-fw-600">
+                  {"Lorem"}
+                </Text>
+
+                <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
+              </Space>
+            </Col>
+          </Row>
         </Col>
 
-        <Col span={5}>
-          <Space direction="vertical">
-            <Text disabled className="cs-fw-600">
-              {"Lorem"}
-            </Text>
-
-            <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
-          </Space>
-        </Col>
-
-        <Col span={5}>
-          <Space direction="vertical">
-            <Text disabled className="cs-fw-600">
-              {"Lorem"}
-            </Text>
-
-            <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
-          </Space>
+        <Col span={8}>
+          <Card className="cs-tm-20 cs-bg-fff">
+            <Form>
+              <Typography.Title level={5} disabled className="cs-fw-600">
+                Lorem ipsum dolor sit amet adipisicing elit.
+              </Typography.Title>
+              <Form.Item>
+                <DatePicker
+                  className="cs-tm-8"
+                  size="large"
+                  style={{ width: "60%" }}
+                />
+              </Form.Item>
+              <div className="cs-tm-30">
+                <Typography.Title level={5} className="cs-fw-600">
+                  Lorem ipsum dolor sit amet adipisicing elit.
+                </Typography.Title>
+              </div>
+            </Form>
+          </Card>
         </Col>
       </Row>
-
-      <Row className="cs-tm-25">
-        <Col span={5}>
-          <Space direction="vertical">
-            <Text disabled className="cs-fw-600">
-              {"Lorem"}
-            </Text>
-
-            <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
-          </Space>
-        </Col>
-
-        <Col span={5}>
-          <Space direction="vertical">
-            <Text disabled className="cs-fw-600">
-              {"Lorem"}
-            </Text>
-
-            <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
-          </Space>
-        </Col>
-
-        <Col span={5}>
-          <Space direction="vertical">
-            <Text disabled className="cs-fw-600">
-              {"Lorem"}
-            </Text>
-
-            <Text className="cs-fw-600">{"Lorem ipsum dolor sit"}</Text>
-          </Space>
-        </Col>
-      </Row>
-
       <Row className="cs-tm-25">
         <Col span={20}>
           <Text disabled className="cs-fw-600">
