@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CSS from "./form.page.module.scss";
 import FormHeader from "../../components/form/header/form-header.molecules";
 import FormTab from "../../components/form/tab/tabs";
 import { ITEMS } from "./constant/form.constant";
 import { Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setPannelData } from "../../redux/actions/tabProgress";
+import { Spin } from "antd";
 
 const RESPONSE_API = {
   data: {
@@ -27,7 +29,13 @@ const RESPONSE_API = {
         Hr_Contact_Number: "9978446266",
         Hr_Email: "Nadhu@abc.com",
         status: "A",
-        companyDetails: [],
+        companyDetails: [
+          {
+            name: "ABC",
+            address:
+              "The Millenia, Sixth Floor Tower C, Murphy R, Halasuru, Karnataka 560008",
+          },
+        ],
       },
       {
         Employment_Type: "time",
@@ -95,7 +103,10 @@ const RESPONSE_API = {
 };
 
 export const Form = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const progress = useSelector((state: any) => state.tabProgress.progress);
+  const dispatch: Function = useDispatch();
+
   const nestedProgress = useSelector(
     (state: any) => state.nestedTabProgress.nestedTabProgress
   );
@@ -108,8 +119,8 @@ export const Form = () => {
     getUserDetails();
   }, []);
 
-  const getUserDetails = async () => {
-    const response = await new Promise((resolve, reject) => {
+  const getUserDetails = useCallback(async () => {
+    const response: any = await new Promise((resolve, reject) => {
       try {
         setTimeout(() => {
           resolve(RESPONSE_API);
@@ -118,9 +129,12 @@ export const Form = () => {
         console.log("error", error);
       }
     });
-  };
+    sessionStorage.setItem("userData", JSON.stringify(response?.data));
+    dispatch(setPannelData(response?.data));
+    setIsLoading(true);
+  }, [dispatch, setIsLoading]);
 
-  return (
+  return isLoading ? (
     <div>
       <FormHeader />
       <FormTab
@@ -133,6 +147,10 @@ export const Form = () => {
           <Outlet />
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="cs-vh-100 cs-dis-flex cs-center">
+      <Spin />
     </div>
   );
 };

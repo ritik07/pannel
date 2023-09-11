@@ -3,7 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initalState = {
   progress: 1,
   nestedTabProgress: 0,
-  userData: {},
+  pannelData: {},
 };
 
 export const tabProgress = (state = initalState, action: any) => {
@@ -26,10 +26,12 @@ export const nestedTabProgress = (state = initalState, action: any) => {
   }
 };
 
-export const userData = (state = initalState, action: any) => {
+export const pannelData = (state = initalState, action: any) => {
   switch (action.type) {
-    case actionTypes.setUserData:
-      return { userData: action.payload };
+    case actionTypes.setPannelData: {
+      console.log("match", action.payload);
+      return { pannelData: action.payload };
+    }
 
     default:
       return state;

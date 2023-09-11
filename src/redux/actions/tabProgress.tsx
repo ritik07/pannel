@@ -18,10 +18,10 @@ export const setNestedProgress = (data: number) => {
   };
 };
 
-export const setUserData = (data: number) => {
+export const setPannelData = (data: any) => {
   return (dispatch: Function) => {
     dispatch({
-      type: actionTypes.setUserData, // Use the imported action type as the 'type' property
+      type: actionTypes.setPannelData, // Use the imported action type as the 'type' property
       payload: data,
     });
   };
