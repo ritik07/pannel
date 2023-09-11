@@ -13,11 +13,12 @@ const RESPONSE_API = {
   data: {
     //root data -> step 3 part 0
     Full_Name: "amkt",
-    Gender: null,
-    DOB: null,
-    Username: null,
+    Gender: "Male",
+    DOB: "02-June-1820",
+    Username: "amkt@gmail.com",
     Mobile_Number: "9958546267",
-    Permanent_Address: null, // address
+    Permanent_Address:
+      "The Millenia, Sixth Floor Tower C, Murphy R, Halasuru, Karnataka 560008", // address
     employment_details: [
       {
         //filter on A: step 1

@@ -78,7 +78,7 @@ const DocumentCard = ({
             </div>
 
             <div className="cs-dis-flex cs-center">
-              <Typography.Text className="cs-color-primary">
+              <Typography.Text className="cs-color-primary cs-pointer">
                 Download
               </Typography.Text>
             </div>

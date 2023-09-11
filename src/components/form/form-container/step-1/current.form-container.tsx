@@ -47,16 +47,15 @@ const CurrentForm = () => {
   };
 
   const handleTransitionDate = (event: moment.Moment | null) => {
-    console.log("event", event);
-
     // Check if event is not null (user selected a date)
     if (event) {
       let tranistionDate = event.toISOString(); // Convert the date to ISO format
-      console.log("tranistionDate", tranistionDate);
       // Retrieve and update the user data from sessionStorage
       let sessionUserData: any = sessionStorage.getItem("userData");
-      console.log("sessionUserData", sessionUserData);
 
+      /**
+       * @action - update session storage and sync it with redux dispatch
+       */
       let temp = JSON.parse(sessionUserData);
       if (sessionUserData) {
         sessionStorage.setItem(
@@ -67,6 +66,9 @@ const CurrentForm = () => {
           })
         );
       }
+      /**
+       * sync redux with session storage
+       */
       dispatch(
         setPannelData({
           ...temp,
@@ -76,7 +78,6 @@ const CurrentForm = () => {
     }
   };
 
-  console.log("object->>>>", pannelData["memoData"].tranistion_data);
   return pannelData ? (
     <div>
       <Text disabled className="cs-fw-500">
@@ -203,7 +204,13 @@ const CurrentForm = () => {
               </Typography.Title>
               <Form.Item>
                 <DatePicker
-                  value={dayjs(pannelData["memoData"].tranistion_data)}
+                  value={
+                    pannelData["memoData"] &&
+                    pannelData["memoData"].tranistion_data
+                      ? dayjs(pannelData["memoData"].tranistion_data)
+                      : undefined
+                  }
+                  defaultValue={undefined}
                   format={"DD/MM/YYYY"}
                   onChange={(e: any) => handleTransitionDate(e)}
                   className="cs-tm-8"
