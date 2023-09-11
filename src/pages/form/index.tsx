@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setPannelData } from "../../redux/actions/tabProgress";
 import { Spin } from "antd";
+import Spinner from "../../components/spinner/spinner";
 
 const RESPONSE_API = {
   data: {
@@ -116,7 +117,19 @@ export const Form = () => {
    */
 
   useEffect(() => {
-    getUserDetails();
+    let sessionExist = sessionStorage.getItem("userData");
+    console.log("sessionExist is not there", !sessionExist);
+    if (!sessionExist) {
+      getUserDetails();
+    } else {
+      /**
+       * sync redux from session storage
+       * turn off loading
+       */
+      let sessionUserData: any = sessionStorage.getItem("userData");
+      dispatch(setPannelData(JSON.parse(sessionUserData)));
+      setIsLoading(true);
+    }
   }, []);
 
   const getUserDetails = useCallback(async () => {
@@ -149,8 +162,6 @@ export const Form = () => {
       </div>
     </div>
   ) : (
-    <div className="cs-vh-100 cs-dis-flex cs-center">
-      <Spin />
-    </div>
+    <Spinner />
   );
 };

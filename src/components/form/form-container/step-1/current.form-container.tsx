@@ -6,19 +6,30 @@ import { Typography } from "antd";
 import ButtonContinue from "../../../button-continue/button-continue";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setProgress } from "../../../../redux/actions/tabProgress";
+import {
+  setPannelData,
+  setProgress,
+} from "../../../../redux/actions/tabProgress";
+import moment from "moment";
+import dayjs from "dayjs";
+import Spinner from "../../../spinner/spinner";
 
 const { Text } = Typography;
 
 const CurrentForm = () => {
   const navigate = useNavigate();
   const pannelData = useSelector((state: any) => state.pannelData.pannelData);
+  const [formData, setFormData] = useState<any>({});
 
   const dispatch: Function = useDispatch();
 
   useEffect(() => {
     dispatch(setProgress(1));
-    console.log("pannelData", pannelData);
+    if (pannelData.memoData) {
+      console.log("pannelData", pannelData);
+      console.log("setting from memo data", pannelData.memoData);
+      setFormData(pannelData.memoData);
+    }
   }, [pannelData, dispatch]);
 
   const handleOnContinue = () => {
@@ -35,7 +46,38 @@ const CurrentForm = () => {
     return result[0];
   };
 
-  return (
+  const handleTransitionDate = (event: moment.Moment | null) => {
+    console.log("event", event);
+
+    // Check if event is not null (user selected a date)
+    if (event) {
+      let tranistionDate = event.toISOString(); // Convert the date to ISO format
+      console.log("tranistionDate", tranistionDate);
+      // Retrieve and update the user data from sessionStorage
+      let sessionUserData: any = sessionStorage.getItem("userData");
+      console.log("sessionUserData", sessionUserData);
+
+      let temp = JSON.parse(sessionUserData);
+      if (sessionUserData) {
+        sessionStorage.setItem(
+          "userData",
+          JSON.stringify({
+            ...temp,
+            memoData: { tranistion_data: tranistionDate },
+          })
+        );
+      }
+      dispatch(
+        setPannelData({
+          ...temp,
+          memoData: { tranistion_data: tranistionDate },
+        })
+      );
+    }
+  };
+
+  console.log("object->>>>", pannelData["memoData"].tranistion_data);
+  return pannelData ? (
     <div>
       <Text disabled className="cs-fw-500">
         {"Your Employment Details"}
@@ -156,10 +198,14 @@ const CurrentForm = () => {
           <Card className="cs-tm-20 cs-bg-fff">
             <Form>
               <Typography.Title level={5} disabled className="cs-fw-600">
+                {/* {formData.metaData.tranistion_date} */}
                 Employment Transition Date
               </Typography.Title>
               <Form.Item>
                 <DatePicker
+                  value={dayjs(pannelData["memoData"].tranistion_data)}
+                  format={"DD/MM/YYYY"}
+                  onChange={(e: any) => handleTransitionDate(e)}
                   className="cs-tm-8"
                   size="large"
                   style={{ width: "60%" }}
@@ -198,6 +244,8 @@ const CurrentForm = () => {
         </div>
       </Row>
     </div>
+  ) : (
+    <Spinner />
   );
 };
 

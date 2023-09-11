@@ -29,7 +29,6 @@ export const nestedTabProgress = (state = initalState, action: any) => {
 export const pannelData = (state = initalState, action: any) => {
   switch (action.type) {
     case actionTypes.setPannelData: {
-      console.log("match", action.payload);
       return { pannelData: action.payload };
     }
 
