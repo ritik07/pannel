@@ -1,32 +1,53 @@
 import React, { useEffect } from "react";
-import {
-  Card,
-  Col,
-  Form,
-  Input,
-  InputNumber,
-  Row,
-  Space,
-  Typography,
-} from "antd";
+import { Col, Row, Space, Typography } from "antd";
 import SelectBankButton from "./select-bank-button/select-bank-button";
 import ButtonContinue from "../../../../button-continue/button-continue";
 import PriceView from "./price-view/price-view";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setProgress,
   setNestedProgress,
+  setPannelData,
 } from "../../../../../redux/actions/tabProgress";
 import { useNavigate } from "react-router-dom";
 
 const { Text, Title } = Typography;
 
 const Part2 = () => {
+  /**
+   * @initialize
+   */
   const navigate = useNavigate();
   const dispatch: Function = useDispatch();
 
+  /**
+   * @selectors
+   */
+  const pannelData = useSelector((state: any) => state.pannelData.pannelData);
+
   useEffect(() => {
     dispatch(setNestedProgress(3));
+    /**
+     * @Logic clear editBank from session and redux once user comes here
+     */
+    let sessionUserData: any = sessionStorage.getItem("userData");
+    let temp = JSON.parse(sessionUserData);
+    sessionStorage.setItem(
+      "userData",
+      JSON.stringify({
+        ...temp,
+        editBank: undefined,
+      })
+    );
+    /**
+     * sync redux with session storage
+     */
+    dispatch(
+      setPannelData({
+        ...temp,
+        editBank: undefined,
+      })
+    );
   }, []);
 
   const handleOnContinue = () => {
@@ -51,7 +72,7 @@ const Part2 = () => {
             <div>
               <Title level={4}>Select Bank</Title>
               <div className="cs-tm-20">
-                <SelectBankButton />
+                <SelectBankButton bankData={pannelData.account_details} />
               </div>
             </div>
             <Row>
@@ -70,7 +91,7 @@ const Part2 = () => {
         <Col span={1}></Col>
 
         <Col xl={7} sm={9} className="cs-tm-10">
-          <PriceView />
+          <PriceView policyData={pannelData.policy_details[0]} />
         </Col>
       </Row>
     </div>

@@ -18,16 +18,52 @@ import { setNestedProgress } from "../../../../../redux/actions/tabProgress";
 const { Text, Title } = Typography;
 
 const Part1 = () => {
+  /**
+   * @initialize
+   */
   const dispatch: Function = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(setNestedProgress(1));
-  }, []);
-
+  /**
+   * @selectors
+   */
   const nestedProgress = useSelector(
     (state: any) => state.nestedTabProgress.nestedTabProgress
   );
+  const pannelData = useSelector((state: any) => state.pannelData.pannelData);
+
+  function maskingString(str: string, start: number, end: number) {
+    if (
+      !str ||
+      start < 0 ||
+      start >= str.length ||
+      end < 0 ||
+      end > str.length ||
+      start >= end
+    ) {
+      return str;
+    }
+    const maskLength = end - start;
+    const maskedStr =
+      str.substring(0, start) + "*".repeat(maskLength) + str.substring(end);
+    return maskedStr;
+  }
+  useEffect(() => {
+    dispatch(setNestedProgress(1));
+    /**
+     * @Logic check if it is edit mode
+     */
+    console.log("pannelData", pannelData);
+    let isEdit = pannelData.editBank;
+    if (isEdit) {
+      isEdit.Account_Number = maskingString(
+        isEdit.Account_Number,
+        0,
+        isEdit.Account_Number.length - 3
+      );
+      form.setFieldsValue(pannelData.editBank);
+    }
+  }, []);
 
   const [form] = Form.useForm();
 
@@ -74,14 +110,18 @@ const Part1 = () => {
           <Title level={4}>Add Bank Details</Title>
           <Card className="cs-tm-10 cs-bg-fff">
             <Form layout="vertical" form={form}>
-              <Form.Item label="Name on the Account" required name={"name"}>
+              <Form.Item
+                label="Name on the Account"
+                required
+                name={"Account_Name"}
+              >
                 <Input placeholder="Name on the account" />
               </Form.Item>
 
               <Form.Item
                 label="Account Number"
                 required
-                name={"account_number"}
+                name={"Account_Number"}
               >
                 <InputNumber
                   style={{ width: "100%" }}
@@ -92,7 +132,7 @@ const Part1 = () => {
               <Form.Item
                 label="Verify Account Number"
                 required
-                name={"verify_account_number"}
+                name={"Account_Number"}
               >
                 <InputNumber
                   style={{ width: "100%" }}
@@ -100,7 +140,7 @@ const Part1 = () => {
                 />
               </Form.Item>
 
-              <Form.Item name={"ifsc_cdoe"} label="IFSC Code" required>
+              <Form.Item name={"Ifsc_Code"} label="IFSC Code" required>
                 <Input placeholder="IFSC" />
               </Form.Item>
             </Form>

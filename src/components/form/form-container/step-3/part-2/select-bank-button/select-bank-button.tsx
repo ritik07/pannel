@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ButtonCard from "./button-card";
 
-const DUMMY = [
-  { name: "HDFC", no: "xxxxxxxx1930", id: 1 },
-  { name: "ICICI", no: "xxxxxxxx8311", id: 3 },
-];
-const SelectBankButton = () => {
+interface ISelectBankProps {
+  bankData: any[];
+}
+
+const SelectBankButton = ({ bankData }: ISelectBankProps) => {
   const [activeAccount, setActiveAccount] = useState(1);
 
   const onSelect = (activeId: number) => {
@@ -14,7 +14,7 @@ const SelectBankButton = () => {
 
   return (
     <div>
-      <ButtonCard data={DUMMY} active={activeAccount} onSelect={onSelect} />
+      <ButtonCard data={bankData} active={activeAccount} onSelect={onSelect} />
     </div>
   );
 };

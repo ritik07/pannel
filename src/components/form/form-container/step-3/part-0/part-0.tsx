@@ -78,9 +78,18 @@ const Part0 = () => {
    */
   const handleOnNext = () => {
     if (true) {
-      navigate("/claim/step-3/part-1");
-      let temp = nestedProgress;
-      dispatch(setNestedProgress(temp + 1));
+      /**
+       * @Logic if account details is there then skip the add account screen move to part 2
+       */
+      if (pannelData.account_details.length) {
+        navigate("/claim/step-3/part-2");
+        let temp = nestedProgress;
+        dispatch(setNestedProgress(temp + 2));
+      } else {
+        navigate("/claim/step-3/part-1");
+        let temp = nestedProgress;
+        dispatch(setNestedProgress(temp + 1));
+      }
     }
   };
 

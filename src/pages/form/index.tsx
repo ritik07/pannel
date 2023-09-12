@@ -58,6 +58,7 @@ const RESPONSE_API = {
         Account_Name: "amit ky",
         Ifsc_Code: "IDKI000321",
         Bank_Name: "IDKI",
+        active: true,
       },
       {
         Account_Number: "52410380",
