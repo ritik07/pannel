@@ -45,7 +45,7 @@ const Step4 = () => {
           </div>
         </Col>
 
-        <Col xl={10} className={CSS.cs_upload_wrapper}>
+        <Col xl={10} xs={24} className={CSS.cs_upload_wrapper}>
           <Uploader />
         </Col>
       </Row>

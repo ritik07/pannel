@@ -48,12 +48,12 @@ const Part1 = () => {
       str.substring(0, start) + "*".repeat(maskLength) + str.substring(end);
     return maskedStr;
   }
+
   useEffect(() => {
     dispatch(setNestedProgress(1));
     /**
      * @Logic check if it is edit mode
      */
-    console.log("pannelData", pannelData);
     let isEdit = pannelData.editBank;
     if (isEdit) {
       isEdit.Account_Number = maskingString(
@@ -62,6 +62,7 @@ const Part1 = () => {
         isEdit.Account_Number.length - 3
       );
       form.setFieldsValue(pannelData.editBank);
+      form.setFieldsValue({ Account_Number_Verify: pannelData.editBank.Account_Number });
     }
   }, []);
 
@@ -123,18 +124,15 @@ const Part1 = () => {
                 required
                 name={"Account_Number"}
               >
-                <InputNumber
-                  style={{ width: "100%" }}
-                  placeholder="Account number"
-                />
+                <Input style={{ width: "100%" }} placeholder="Account number" />
               </Form.Item>
 
               <Form.Item
                 label="Verify Account Number"
                 required
-                name={"Account_Number"}
+                name={"Account_Number_Verify"}
               >
-                <InputNumber
+                <Input
                   style={{ width: "100%" }}
                   placeholder="Re-enter account number"
                 />

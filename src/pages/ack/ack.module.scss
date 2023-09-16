@@ -6,10 +6,7 @@
   position: relative;
 }
 
-.ack_title{
-  position: absolute;
-  top: 10px;
-  left: 10px;
+.ack_title {
   padding: pxToRem(10);
   color: #5555f1 !important;
 }
@@ -18,7 +15,6 @@
   background-color: #f7f9fb;
   border-radius: 4px;
   width: 70pc;
-  height: 50vh;
   border: 1px solid #00000014;
 }
 
@@ -28,7 +24,6 @@
   background-color: #fff;
   border: 1px solid #00000014;
   border-radius: 0px 10px 10px 0px;
-  height: 50vh;
 }
 
 .icon_wrapper {
@@ -38,13 +33,10 @@
 }
 
 .date {
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
+  margin-top: 86px;
 }
 
 .right_pannel {
   background-color: #f7f9fb;
-  height: 50vh;
   padding: pxToRem(30);
 }

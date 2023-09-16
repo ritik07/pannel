@@ -3,6 +3,7 @@ import { Typography } from "antd";
 import CSS from "./tabs.module.scss";
 import { CloseOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { createNotification } from "../../../utils/notify";
 
 export interface TabHeader {
   key: number;
@@ -29,7 +30,16 @@ function TabsMolecule({
   const navigate = useNavigate();
 
   const handleOnClaim = () => {
-    navigate("/acknowledge");
+    let sessionUserData: any = sessionStorage.getItem("userData");
+    let temp = JSON.parse(sessionUserData);
+    if (temp?.fileListData?.length) {
+      navigate("/acknowledge");
+    } else {
+      createNotification("error", {
+        title: "Error",
+        message: "Please upload at least one file before completing claim",
+      });
+    }
   };
 
   return (

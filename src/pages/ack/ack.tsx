@@ -14,13 +14,15 @@ const Ack = () => {
   return (
     <div className={CSS.ack_container}>
       <div className={CSS.ack_title}>
-        <Typography.Title className="cs-color-primary-1" level={3}>Lorem ipsum</Typography.Title>
+        <Typography.Title className="cs-color-primary-1" level={3}>
+          Lorem ipsum
+        </Typography.Title>
       </div>
       <div>
         <div className="cs-dis-flex cs-center cs-vh-100">
           <div className={CSS.card_container}>
-            <Row>
-              <Col span={8}>
+            <Row gutter={[20, 20]}>
+              <Col xl={8} xs={24}>
                 <div className={CSS.left_pannel}>
                   <div>
                     <Typography.Title level={4} className="cs-color-secondary">
@@ -28,27 +30,27 @@ const Ack = () => {
                     </Typography.Title>
 
                     <Row gutter={[20, 20]} className="cs-tm-30">
-                      <Col span={5}>
+                      <Col xl={5}>
                         <div className="cs-dis-flex">
                           <div className={CSS.icon_wrapper}>
                             <UserOutlined style={{ fontSize: 20 }} />
                           </div>
                         </div>
                       </Col>
-                      <Col span={19} className="cs-dis-flex cs-vt-center">
+                      <Col xl={19} className="cs-dis-flex cs-vt-center">
                         <Typography.Title level={3}>John Hu</Typography.Title>
                       </Col>
                     </Row>
 
                     <Row gutter={[10, 10]} className="cs-tm-20">
-                      <Col span={5}>
+                      <Col xl={5}>
                         <div className="cs-dis-flex">
                           <div className={CSS.icon_wrapper}>
                             <FileOutlined style={{ fontSize: 20 }} />
                           </div>
                         </div>
                       </Col>
-                      <Col span={19} className="cs-dis-flex cs-vt-center">
+                      <Col xl={19} className="cs-dis-flex cs-vt-center">
                         <div>
                           <Typography.Title level={3}>
                             Lorizzel ID
@@ -63,7 +65,7 @@ const Ack = () => {
                   </div>
                 </div>
               </Col>
-              <Col span={16}>
+              <Col xl={16} xs={24}>
                 <div className={CSS.right_pannel}>
                   <div className="cs-tm-40">
                     <div>
@@ -74,9 +76,6 @@ const Ack = () => {
                         quam accusantium cupiditate, perferendis mollitia
                         numquam hic? Lorem ipsum dolor sit amet consectetur
                         adipisicing elit. Fugiat saepe molestiae accusantium
-                        vitae eius expedita? Repudiandae possimus minus debitis
-                        vitae, nostrum aspernatur quia amet animi architecto
-                        unde. Optio, fugiat facilis.
                       </Typography.Text>
                     </div>
 
@@ -90,7 +89,12 @@ const Ack = () => {
                     </div>
 
                     <div className="cs-tm-30">
-                      <ButtonContinue clickEvent={() => {}} text="Continue" />
+                      <ButtonContinue
+                        clickEvent={() => {
+                          sessionStorage.clear();
+                        }}
+                        text="Continue"
+                      />
                     </div>
                   </div>
                 </div>

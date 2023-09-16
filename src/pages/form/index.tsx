@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPannelData } from "../../redux/actions/tabProgress";
 import { Spin } from "antd";
 import Spinner from "../../components/spinner/spinner";
+// @ts-ignore
+import { NotificationContainer } from "react-notifications";
 
 const RESPONSE_API = {
   data: {
@@ -59,24 +61,14 @@ const RESPONSE_API = {
         Ifsc_Code: "IDKI000321",
         Bank_Name: "IDKI",
         active: true,
+        status: "A",
       },
       {
         Account_Number: "52410380",
         Account_Name: "amit ky",
         Ifsc_Code: "IDFC000321",
         Bank_Name: "IDFC",
-      },
-      {
-        Account_Number: "764328",
-        Account_Name: "amit ky",
-        Ifsc_Code: "nsjfhbsfa",
-        Bank_Name: "ICIC",
-      },
-      {
-        Account_Number: "52410387",
-        Account_Name: "amit ky",
-        Ifsc_Code: "HDFC000321",
-        Bank_Name: "HDFC",
+        status: "B",
       },
     ],
     claim_details: [
@@ -162,6 +154,7 @@ export const Form = () => {
           <Outlet />
         </div>
       </div>
+      <NotificationContainer />
     </div>
   ) : (
     <Spinner />

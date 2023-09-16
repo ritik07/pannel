@@ -13,6 +13,7 @@ import {
 import moment from "moment";
 import dayjs from "dayjs";
 import Spinner from "../../../spinner/spinner";
+import { createNotification } from "../../../../utils/notify";
 
 const { Text } = Typography;
 
@@ -33,9 +34,14 @@ const CurrentForm = () => {
   }, [pannelData, dispatch]);
 
   const handleOnContinue = () => {
-    if (true) {
+    if (pannelData.memoData) {
       navigate("/claim/step-3");
       dispatch(setProgress(2));
+    } else {
+      createNotification("error", {
+        title: "Error",
+        message: "Please select tranistion date",
+      });
     }
   };
 
@@ -83,10 +89,10 @@ const CurrentForm = () => {
       <Text disabled className="cs-fw-500">
         {"Your Employment Details"}
       </Text>
-      <Row gutter={[20, 20]}>
-        <Col span={13}>
-          <Row className="cs-tm-30">
-            <Col span={9}>
+      <Row gutter={[10, 10]}>
+        <Col xl={13} xs={24}>
+          <Row gutter={[20, 20]} className="cs-tm-30">
+            <Col xl={9} xs={9}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   {"Company Name"}
@@ -97,8 +103,8 @@ const CurrentForm = () => {
                 </Text>
               </Space>
             </Col>
-            <Col span={1}></Col>
-            <Col span={4}>
+            <Col xl={1} xs={1}></Col>
+            <Col xl={4} xs={4}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   Manager Name
@@ -109,9 +115,9 @@ const CurrentForm = () => {
                 </Text>
               </Space>
             </Col>
-            <Col span={3}></Col>
+            <Col xl={3} xs={3}></Col>
 
-            <Col span={7}>
+            <Col xl={7} xs={7}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   Human Resources Personnel
@@ -122,8 +128,8 @@ const CurrentForm = () => {
             </Col>
           </Row>
 
-          <Row className="cs-tm-25">
-            <Col span={5}>
+          <Row gutter={[20, 20]} className="cs-tm-25">
+            <Col xl={5} xs={8}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   Employment Type
@@ -135,7 +141,7 @@ const CurrentForm = () => {
               </Space>
             </Col>
 
-            <Col span={5}>
+            <Col xl={5} xs={8}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   Joining Month
@@ -147,7 +153,7 @@ const CurrentForm = () => {
               </Space>
             </Col>
 
-            <Col span={7}>
+            <Col xl={7} xs={10}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   Manager Contact Details
@@ -159,7 +165,7 @@ const CurrentForm = () => {
               </Space>
             </Col>
 
-            <Col span={7}>
+            <Col xl={7} xs={7}>
               <Space direction="vertical">
                 <Text disabled className="cs-fw-600">
                   HR Contact Details
@@ -173,7 +179,7 @@ const CurrentForm = () => {
           </Row>
 
           <Row className="cs-tm-25">
-            <Col span={24}>
+            <Col xl={24} xs={24}>
               <Text disabled className="cs-fw-600">
                 Workspace Address
               </Text>
@@ -189,7 +195,7 @@ const CurrentForm = () => {
           </Row>
         </Col>
 
-        <Col span={9}>
+        <Col xl={9} xs={24}>
           <Typography.Title level={3} className="cs-fw-600">
             Employment Transition Date
           </Typography.Title>
@@ -228,7 +234,7 @@ const CurrentForm = () => {
         </Col>
       </Row>
       <Row className="cs-tm-25">
-        <Col span={22}>
+        <Col xl={22} xs={22}>
           {/* <Text disabled className="cs-fw-600">
             Workspace Address
           </Text> */}
@@ -245,7 +251,7 @@ const CurrentForm = () => {
           </div>
         </Col>
 
-        <Col span={2}></Col>
+        <Col xl={2} xs={2}></Col>
         <div>
           <img src={bg} alt="bg" className={CSS.current_form_bg_image} />
         </div>

@@ -8,7 +8,7 @@ import {
 } from "../../../../../redux/actions/tabProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { createNotification } from "../../../../../utils/notify";
 const { Text, Title } = Typography;
 
 const Part0 = () => {
@@ -77,7 +77,7 @@ const Part0 = () => {
    * @Functions
    */
   const handleOnNext = () => {
-    if (true) {
+    if (panFile.panFileValue.length && aadharFile.aadharFileValue.length) {
       /**
        * @Logic if account details is there then skip the add account screen move to part 2
        */
@@ -90,6 +90,11 @@ const Part0 = () => {
         let temp = nestedProgress;
         dispatch(setNestedProgress(temp + 1));
       }
+    } else {
+      createNotification("error", {
+        title: "Error",
+        message: "Please complete the KYC first",
+      });
     }
   };
 
@@ -179,7 +184,7 @@ const Part0 = () => {
       </Space>
 
       <Row className="cs-tm-30" gutter={[10, 10]}>
-        <Col span={2}>
+        <Col xl={2} xs={5}>
           <Title level={5} type="secondary">
             Name
           </Title>
@@ -187,7 +192,7 @@ const Part0 = () => {
           <Title level={5}>{pannelData.Full_Name}</Title>
         </Col>
 
-        <Col span={2}>
+        <Col xl={2} xs={5}>
           <Title level={5} type="secondary">
             Gender
           </Title>
@@ -195,7 +200,7 @@ const Part0 = () => {
           <Title level={5}>{pannelData.Gender}</Title>
         </Col>
 
-        <Col span={3}>
+        <Col xl={3} xs={5}>
           <Title level={5} type="secondary">
             Date of Birth
           </Title>
@@ -203,7 +208,7 @@ const Part0 = () => {
           <Title level={5}>{pannelData.DOB}</Title>
         </Col>
 
-        <Col span={5}>
+        <Col xl={5} xs={5}>
           <Title level={5} type="secondary">
             Email
           </Title>
@@ -211,7 +216,7 @@ const Part0 = () => {
           <Title level={5}>{pannelData.Username}</Title>
         </Col>
 
-        <Col span={5}>
+        <Col xl={5} xs={5}>
           <Title level={5} type="secondary">
             Phone number
           </Title>
@@ -221,7 +226,7 @@ const Part0 = () => {
       </Row>
 
       <Row className="cs-tm-30">
-        <Col span={24}>
+        <Col xl={24} xs={24}>
           <Title level={5} disabled>
             Permanent Address
           </Title>
@@ -237,7 +242,7 @@ const Part0 = () => {
         </Text>
       </div>
       <Row gutter={[20, 20]} className="cs-tm-10">
-        <Col span={5}>
+        <Col xl={5} xs={24}>
           <DocumentCard
             value="pan"
             type={panFile.panFileStatus}
@@ -246,7 +251,7 @@ const Part0 = () => {
           />
         </Col>
 
-        <Col span={5}>
+        <Col xl={5} xs={24}>
           <DocumentCard
             value="aadhar"
             type={aadharFile.aadharFileStatus}
@@ -255,9 +260,9 @@ const Part0 = () => {
           />
         </Col>
       </Row>
-      <Row>
-        <Col span={14}></Col>
-        <Col span={2}>
+      <Row gutter={[20, 20]}>
+        <Col xl={14} xs={24}></Col>
+        <Col xl={2} xs={24}>
           <div className="cs-jc-end cs-dis-flex">
             <ButtonContinue clickEvent={handleOnNext} text="Next" />
           </div>
