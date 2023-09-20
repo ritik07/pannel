@@ -1,7 +1,9 @@
 import React, { memo } from "react";
-
-import CSS from "./tabs.molecule.module.scss";
+import { Typography } from "antd";
+import CSS from "./tabs.module.scss";
 import { CloseOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import { createNotification } from "../../../utils/notify";
 
 export interface TabHeader {
   key: number;
@@ -25,6 +27,21 @@ function TabsMolecule({
     console.log("clicked");
   },
 }: TabsProps): JSX.Element {
+  const navigate = useNavigate();
+
+  const handleOnClaim = () => {
+    let sessionUserData: any = sessionStorage.getItem("userData");
+    let temp = JSON.parse(sessionUserData);
+    if (temp?.fileListData?.length) {
+      navigate("/acknowledge");
+    } else {
+      createNotification("error", {
+        title: "Error",
+        message: "Please upload at least one file before completing claim",
+      });
+    }
+  };
+
   return (
     <div className={CSS.tab_container}>
       <div
@@ -40,9 +57,7 @@ function TabsMolecule({
             <div
               key={item.key}
               onClick={() => onChange(item.key, item.path)}
-              className={`${CSS["cs-tab-title"]} ${CSS["cs-cursor-pointer"]} ${
-                CSS.box_border
-              } 
+              className={`${CSS["cs-tab-title"]}} ${CSS.box_border} 
                ${CSS["cs-bp-10"]} ${
                 active === item.key ? CSS["cs-active-tab"] : ""
               }`}
@@ -58,7 +73,16 @@ function TabsMolecule({
             </div>
           );
         })}
-        <div className={`cs-dis-flex cs-center ${CSS.box_border}`}></div>
+        <div
+          onClick={active === 4 ? handleOnClaim : () => {}}
+          className={`cs-dis-flex cs-center ${CSS.box_border} ${
+            active === 4 && `${CSS.active_claim} cs-cursor-pointer`
+          }`}
+        >
+          {active === 4 && (
+            <Typography.Title level={4}>Claim Complete</Typography.Title>
+          )}
+        </div>
       </div>
     </div>
   );

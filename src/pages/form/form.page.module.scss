@@ -1,7 +1,13 @@
 @import "/src/styles/functions";
 @import "/src/styles/colors";
 
-.form_child_container{
+.form_child_container {
   display: grid;
-  grid-template-columns: 6% 3fr;
+  grid-template-columns: 8% 3fr;
+}
+
+.cs_progress_step {
+  height: pxToRem(5);
+  width: pxToRem(21);
+  border-radius: pxToRem(5);
 }

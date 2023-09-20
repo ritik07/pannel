@@ -1,0 +1,23 @@
+@import "/src/styles/functions";
+
+.cs_feature_pricing_container {
+  background-color: #201540;
+  padding: pxToRem(10);
+  border-radius: pxToRem(5);
+  position: relative;
+  z-index: 3 !important;
+}
+
+.cs_bg_image {
+  position: absolute;
+  z-index: 2 !important;
+  padding: 10px;
+  width: pxToRem(90);
+  height: pxToRem(90);
+  top: 88px;
+  left: 2px;
+}
+
+.container {
+  z-index: 2 !important;
+}

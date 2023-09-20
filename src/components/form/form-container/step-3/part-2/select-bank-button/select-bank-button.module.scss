@@ -1,0 +1,70 @@
+@import "/src/styles/functions";
+
+.cs_inactive_button {
+  background-color: #C5C6C8;
+  padding: pxToRem(5);
+}
+
+.cs_active_button {
+  background-color: #5ffc99;
+  padding: pxToRem(5);
+}
+
+.cs_bank_card_container {
+  border: 1px solid #C5C6C8;
+  border-radius: pxToRem(5);
+  padding: pxToRem(5);
+}
+
+.cs_active_bank_card_container {
+  background-color: #fff;
+  border: 1px solid #5555F1;
+  border-radius: pxToRem(5);
+  padding: pxToRem(5);
+}
+
+.outer_radio_btn {
+  background: #fff;
+  border: 2px solid #5555F1;
+  border-radius: 50%;
+  height: pxToRem(30);
+  width: pxToRem(30);
+  position: relative;
+}
+
+
+.radio_btn {
+  left: 10;
+  position: absolute;
+  background: #5555F1;
+  border-radius: 50%;
+  height: pxToRem(20);
+  width: pxToRem(20);
+}
+
+.outer_radio_btn_inactive {
+  background: #fff;
+  border: 2px solid #C5C6C8;
+  border-radius: 50%;
+  height: pxToRem(30);
+  width: pxToRem(30);
+  position: relative;
+}
+
+
+.radio_btn_inactive {
+  left: 10;
+  position: absolute;
+  background: #C5C6C8;
+  border-radius: 50%;
+  height: pxToRem(20);
+  width: pxToRem(20);
+}
+
+.cs_button_add_bank {
+  background: #fff;
+  border-radius: 50%;
+  height: pxToRem(35);
+  width: pxToRem(35);
+  position: relative;
+}

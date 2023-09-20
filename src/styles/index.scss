@@ -15,12 +15,44 @@ body {
   min-height: 100vh;
 }
 
-.cs-color-primary{
+.cs-color-primary {
   color: #5555f1 !important;
 }
 
-.cs-color-secondary{
+.cs-color-primary-1 {
+  color: #2e1e5b !important;
+}
+
+.cs-bg-fff {
+  background-color: #fff;
+}
+
+.cs-clr-fff {
+  color: #FFF !important;
+}
+
+.cs-color-secondary {
   color: #38b65a !important;
+}
+
+// $width-value: 30, 40, 50, 60, 70, 80, 90, 100;
+
+// @each $value in $width-value {
+// 	.cs-w-#{$value} {
+// 		width: #{$value}"%" !important;
+// 	}
+// }
+
+.cs-clr-black {
+  color: #000 !important;
+}
+
+.cs-w-100 {
+  width: 100%;
+}
+
+.cs-w-60 {
+  width: 60%;
 }
 
 * {
@@ -34,6 +66,10 @@ body {
 
 .cs-cursor-pointer {
   cursor: pointer;
+}
+
+.cs-jc-end {
+  justify-content: end !important;
 }
 
 .flex {
@@ -51,7 +87,7 @@ body {
 }
 
 .cs-jc-sb {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .cs-ai-end {
@@ -100,6 +136,10 @@ $rules: (
   -o-filter: brightness(40%);
   -ms-filter: brightness(40%);
   filter: brightness(40%);
+}
+
+.cs-vh-100 {
+  height: 100vh;
 }
 
 .bread-crumbs {

@@ -1,0 +1,11 @@
+@import "/src/styles/functions";
+
+.current_form_continue {
+  width: pxToRem(170);
+  padding: pxToRem(10) pxToRem(20) pxToRem(10) pxToRem(20);
+  background-color: #38b65a;
+  color: #000;
+  border-radius: pxToRem(6);
+  display: flex;
+  justify-content: space-between;
+}

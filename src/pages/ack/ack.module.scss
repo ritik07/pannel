@@ -1,0 +1,42 @@
+@import "/src/styles/functions";
+
+
+.ack_container {
+  background: #eae9ee;
+  position: relative;
+}
+
+.ack_title {
+  padding: pxToRem(10);
+  color: #5555f1 !important;
+}
+
+.card_container {
+  background-color: #f7f9fb;
+  border-radius: 4px;
+  width: 70pc;
+  border: 1px solid #00000014;
+}
+
+.left_pannel {
+  position: relative;
+  padding: pxToRem(30);
+  background-color: #fff;
+  border: 1px solid #00000014;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.icon_wrapper {
+  padding: pxToRem(15);
+  background-color: #5FFC99;
+  border-radius: pxToRem(2);
+}
+
+.date {
+  margin-top: 86px;
+}
+
+.right_pannel {
+  background-color: #f7f9fb;
+  padding: pxToRem(30);
+}
