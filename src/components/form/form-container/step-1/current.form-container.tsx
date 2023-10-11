@@ -94,11 +94,11 @@ const CurrentForm = () => {
           <Row gutter={[20, 20]} className="cs-tm-30">
             <Col xl={9} xs={9}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   {"Company Name"}
                 </Text>
 
-                <Text className="cs-fw-600">
+                <Text className="cs-fw-500">
                   {getCompanyDetail().companyDetails[0].name}
                 </Text>
               </Space>
@@ -106,11 +106,11 @@ const CurrentForm = () => {
             <Col xl={1} xs={1}></Col>
             <Col xl={4} xs={4}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   Manager Name
                 </Text>
 
-                <Text className="cs-fw-600">
+                <Text className="cs-fw-500">
                   {getCompanyDetail().Manager_Name}
                 </Text>
               </Space>
@@ -119,11 +119,11 @@ const CurrentForm = () => {
 
             <Col xl={7} xs={7}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   Human Resources Personnel
                 </Text>
 
-                <Text className="cs-fw-600">{getCompanyDetail().Hr_Name}</Text>
+                <Text className="cs-fw-500">{getCompanyDetail().Hr_Name}</Text>
               </Space>
             </Col>
           </Row>
@@ -131,11 +131,11 @@ const CurrentForm = () => {
           <Row gutter={[20, 20]} className="cs-tm-25">
             <Col xl={5} xs={8}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   Employment Type
                 </Text>
 
-                <Text className="cs-fw-600">
+                <Text className="cs-fw-500">
                   {getCompanyDetail().Employment_Type}
                 </Text>
               </Space>
@@ -143,11 +143,11 @@ const CurrentForm = () => {
 
             <Col xl={5} xs={8}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   Joining Month
                 </Text>
 
-                <Text className="cs-fw-600">
+                <Text className="cs-fw-500">
                   {getCompanyDetail().Joining_Date}
                 </Text>
               </Space>
@@ -155,11 +155,11 @@ const CurrentForm = () => {
 
             <Col xl={7} xs={10}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   Manager Contact Details
                 </Text>
 
-                <Text className="cs-fw-600">
+                <Text className="cs-fw-500">
                   {getCompanyDetail().Manager_Email}
                 </Text>
               </Space>
@@ -167,11 +167,11 @@ const CurrentForm = () => {
 
             <Col xl={7} xs={7}>
               <Space direction="vertical">
-                <Text disabled className="cs-fw-600">
+                <Text disabled className="cs-fw-500">
                   HR Contact Details
                 </Text>
 
-                <Text className="cs-fw-600">
+                <Text className="cs-fw-500">
                   {getCompanyDetail().Manager_Email}
                 </Text>
               </Space>
@@ -180,12 +180,12 @@ const CurrentForm = () => {
 
           <Row className="cs-tm-25">
             <Col xl={24} xs={24}>
-              <Text disabled className="cs-fw-600">
+              <Text disabled className="cs-fw-500">
                 Workspace Address
               </Text>
               <div style={{ width: "330px" }}>
                 <Text
-                  className="cs-fw-600"
+                  className="cs-fw-500"
                   style={{ width: "300px", wordBreak: "break-all" }}
                 >
                   {getCompanyDetail().companyDetails[0].address}
@@ -196,15 +196,15 @@ const CurrentForm = () => {
         </Col>
 
         <Col xl={9} xs={24}>
-          <Typography.Title level={3} className="cs-fw-600">
+          {/* <Typography.Title level={3} className="cs-fw-500">
             Employment Transition Date
           </Typography.Title>
-          <Typography.Title level={5} type="secondary" className="cs-fw-600">
+          <Typography.Title level={5} type="secondary" className="cs-fw-500">
             A Step Towards New Beginnings
-          </Typography.Title>
+          </Typography.Title> */}
           <Card className="cs-tm-20 cs-bg-fff">
             <Form>
-              <Typography.Title level={5} disabled className="cs-fw-600">
+              <Typography.Title level={5} disabled className="cs-fw-500">
                 {/* {formData.metaData.tranistion_date} */}
                 Employment Transition Date
               </Typography.Title>
@@ -225,7 +225,7 @@ const CurrentForm = () => {
                 />
               </Form.Item>
               <div className="cs-tm-30">
-                <Typography.Text className="cs-fw-600">
+                <Typography.Text className="cs-fw-500">
                   We're here to support you on your path to new opportunites
                 </Typography.Text>
               </div>
@@ -235,13 +235,13 @@ const CurrentForm = () => {
       </Row>
       <Row className="cs-tm-25">
         <Col xl={22} xs={22}>
-          {/* <Text disabled className="cs-fw-600">
+          {/* <Text disabled className="cs-fw-500">
             Workspace Address
           </Text> */}
           <div className="cs-dis-flex cs-jc-sb">
             <div></div>
             {/* <Text
-              className="cs-fw-600"
+              className="cs-fw-500"
               style={{ width: "300px", wordBreak: "break-all" }}
             >
               {getCompanyDetail().companyDetails[0].address}

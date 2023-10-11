@@ -10,6 +10,8 @@ import {
   setPannelData,
 } from "../../../../../redux/actions/tabProgress";
 import { useNavigate } from "react-router-dom";
+import bg from "../../assets/bg.png";
+import CSS from "../../step-1/current.form-container.module.scss";
 
 const { Text, Title } = Typography;
 
@@ -93,6 +95,9 @@ const Part2 = () => {
         <Col xl={7} sm={9} className="cs-tm-10">
           <PriceView policyData={pannelData.policy_details[0]} />
         </Col>
+        <div>
+          <img src={bg} alt="bg" className={CSS.current_form_bg_image} />
+        </div>
       </Row>
     </div>
   );

@@ -4,18 +4,34 @@
 .ack_container {
   background: #eae9ee;
   position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  z-index: 12;
 }
 
 .ack_title {
+  top: 20px;
+  left: 20px;
+  position: absolute;
   padding: pxToRem(10);
   color: #5555f1 !important;
 }
 
 .card_container {
+  z-index: 12;
   background-color: #f7f9fb;
   border-radius: 4px;
-  width: 70pc;
+  width: 55pc;
   border: 1px solid #00000014;
+}
+
+.m_l_30 {
+  margin-left: pxToRem(30);
 }
 
 .left_pannel {
@@ -39,4 +55,48 @@
 .right_pannel {
   background-color: #f7f9fb;
   padding: pxToRem(30);
+}
+
+.cs_left_bottom_semi_raduis {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: #00ac3f;
+  position: absolute;
+  bottom: -285px;
+  left: -60px;
+  z-index: -1;
+}
+
+.cs_right_bottom_semi_raduis {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: #d5d4f2;
+  position: absolute;
+  bottom: -310px;
+  right: -200px;
+  z-index: -1;
+}
+
+.cs_right_1_bottom_semi_raduis {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: #b6b5f1;
+  position: absolute;
+  bottom: -400px;
+  right: -290px;
+  z-index: -1;
+}
+
+.cs_bg_image {
+  position: absolute;
+  z-index: 2 !important;
+  padding: 10px;
+  width: pxToRem(90);
+  height: pxToRem(90);
+  bottom: -40px;
+  right: -51px;
+  z-index: -1;
 }

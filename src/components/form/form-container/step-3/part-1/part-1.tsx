@@ -14,6 +14,7 @@ import BankAds from "../bank-ads";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setNestedProgress } from "../../../../../redux/actions/tabProgress";
+import { createNotification } from "../../../../../utils/notify";
 
 const { Text, Title } = Typography;
 
@@ -62,18 +63,28 @@ const Part1 = () => {
         isEdit.Account_Number.length - 3
       );
       form.setFieldsValue(pannelData.editBank);
-      form.setFieldsValue({ Account_Number_Verify: pannelData.editBank.Account_Number });
+      form.setFieldsValue({
+        Account_Number_Verify: pannelData.editBank.Account_Number,
+      });
     }
   }, []);
 
   const [form] = Form.useForm();
 
-  const handleOnNext = () => {
-    if (true) {
-      navigate("/claim/step-3/part-2");
-      let temp = nestedProgress;
-      dispatch(setNestedProgress(temp + 1));
+  const handleOnNext = async () => {
+    let formResponse = form.getFieldsValue();
+    for (const property in formResponse) {
+      if (!formResponse[property]) {
+        createNotification("error", {
+          title: "Error",
+          message: "All fields are mandatory",
+        });
+        return;
+      }
     }
+    navigate("/claim/step-3/part-2");
+    let temp = nestedProgress;
+    dispatch(setNestedProgress(temp + 1));
   };
 
   return (

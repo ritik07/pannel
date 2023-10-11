@@ -44,6 +44,23 @@ const ButtonCard = ({ data, active, onSelect }: IButtonCard) => {
     navigate("/claim/step-3/part-1");
   };
 
+  function maskingString(str: string, start: number, end: number) {
+    if (
+      !str ||
+      start < 0 ||
+      start >= str.length ||
+      end < 0 ||
+      end > str.length ||
+      start >= end
+    ) {
+      return str;
+    }
+    const maskLength = end - start;
+    const maskedStr =
+      str.substring(0, start) + "*".repeat(maskLength) + str.substring(end);
+    return maskedStr;
+  }
+
   return (
     <div>
       {data.map((item) => {
@@ -78,7 +95,13 @@ const ButtonCard = ({ data, active, onSelect }: IButtonCard) => {
                   className="cs-dis-flex cs-center cs-w-100 cs-jc-sb"
                 >
                   <div className="cs-lm-10">
-                    <Title level={5}>{item.Account_Number}</Title>
+                    <Title level={5}>
+                      {maskingString(
+                        item.Account_Number,
+                        0,
+                        item.Account_Number.length - 3
+                      )}
+                    </Title>
                   </div>
 
                   <div className="cs-dis-flex">

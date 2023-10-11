@@ -9,6 +9,9 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createNotification } from "../../../../../utils/notify";
+import bg from "../../assets/bg.png";
+import CSS from "../../step-1/current.form-container.module.scss";
+
 const { Text, Title } = Typography;
 
 const Part0 = () => {
@@ -177,67 +180,79 @@ const Part0 = () => {
   return (
     <div>
       <Space direction="vertical">
-        <Text className="cs-fw-600">{"Step 1"}</Text>
-        <Text disabled className="cs-fw-600">
+        <Text className="cs-fw-500">{"Step 1"}</Text>
+        <Text disabled className="cs-fw-500">
           {"Personal Details"}
         </Text>
       </Space>
 
       <Row className="cs-tm-30" gutter={[10, 10]}>
         <Col xl={2} xs={5}>
-          <Title level={5} type="secondary">
-            Name
-          </Title>
+          <Space direction="vertical">
+            <Text disabled className="cs-fw-500">
+              Name
+            </Text>
 
-          <Title level={5}>{pannelData.Full_Name}</Title>
+            <Text className="cs-fw-500">{pannelData.Full_Name}</Text>
+          </Space>
         </Col>
 
         <Col xl={2} xs={5}>
-          <Title level={5} type="secondary">
-            Gender
-          </Title>
+          <Space direction="vertical">
+            <Text disabled className="cs-fw-500">
+              Gender
+            </Text>
 
-          <Title level={5}>{pannelData.Gender}</Title>
+            <Text className="cs-fw-500">{pannelData.Gender}</Text>
+          </Space>
         </Col>
 
         <Col xl={3} xs={5}>
-          <Title level={5} type="secondary">
-            Date of Birth
-          </Title>
+          <Space direction="vertical">
+            <Text disabled className="cs-fw-500">
+              Date of Birth
+            </Text>
 
-          <Title level={5}>{pannelData.DOB}</Title>
+            <Text className="cs-fw-500">{pannelData.DOB}</Text>
+          </Space>
         </Col>
 
         <Col xl={5} xs={5}>
-          <Title level={5} type="secondary">
-            Email
-          </Title>
+          <Space direction="vertical">
+            <Text disabled className="cs-fw-500">
+              Email
+            </Text>
 
-          <Title level={5}>{pannelData.Username}</Title>
+            <Text className="cs-fw-500">{pannelData.Username}</Text>
+          </Space>
         </Col>
 
         <Col xl={5} xs={5}>
-          <Title level={5} type="secondary">
-            Phone number
-          </Title>
+          <Space direction="vertical">
+            <Text disabled className="cs-fw-500">
+              Phone number
+            </Text>
 
-          <Title level={5}>+91 {pannelData.Mobile_Number}</Title>
+            <Text className="cs-fw-500">+91 {pannelData.Mobile_Number}</Text>
+          </Space>
         </Col>
       </Row>
 
       <Row className="cs-tm-30">
         <Col xl={24} xs={24}>
-          <Title level={5} disabled>
-            Permanent Address
-          </Title>
-          <Title level={5}>{pannelData.Permanent_Address}</Title>
+          <Space direction="vertical">
+            <Text disabled className="cs-fw-500">
+              Permanent Address
+            </Text>
+            <Text className="cs-fw-500">{pannelData.Permanent_Address}</Text>
+          </Space>
         </Col>
       </Row>
 
       <Divider className="cs-tm-40" />
 
       <div>
-        <Text disabled className="cs-fw-600">
+        <Text disabled className="cs-fw-500">
           {"KYC Details"}
         </Text>
       </div>
@@ -267,6 +282,9 @@ const Part0 = () => {
             <ButtonContinue clickEvent={handleOnNext} text="Next" />
           </div>
         </Col>
+        <div>
+          <img src={bg} alt="bg" className={CSS.current_form_bg_image} />
+        </div>
       </Row>
     </div>
   );
